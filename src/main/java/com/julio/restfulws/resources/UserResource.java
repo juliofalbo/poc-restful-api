@@ -34,8 +34,10 @@ public class UserResource {
         Resource<User> resource = new Resource<>(user);
         ControllerLinkBuilder all = ControllerLinkBuilder.linkTo(ControllerLinkBuilder.methodOn(this.getClass()).findAll());
         ControllerLinkBuilder self = ControllerLinkBuilder.linkTo(ControllerLinkBuilder.methodOn(this.getClass()).findOne(id));
+        ControllerLinkBuilder posts = ControllerLinkBuilder.linkTo(ControllerLinkBuilder.methodOn(PostResource.class).findAllByUserId(id));
         resource.add(all.withRel("all-users"));
         resource.add(self.withRel("self"));
+        resource.add(posts.withRel("posts"));
         return resource;
     }
 
