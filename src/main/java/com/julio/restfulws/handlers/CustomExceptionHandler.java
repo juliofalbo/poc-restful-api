@@ -18,7 +18,7 @@ import java.util.Date;
 
 @RestController
 @ControllerAdvice
-public class CustomExcepetionHandler extends ResponseEntityExceptionHandler {
+public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     private ResponseEntity<ExceptionResponse> defaultExp(Exception ex, WebRequest request) {
